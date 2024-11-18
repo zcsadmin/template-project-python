@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .build/dockerfiles/Dockerfile
+      target: build
+#    ports:
+#      - "8080:8080"
+#      - "5678:5678"
+    volumes:
+      - "./app:/app:cached"
+      - "./.data/bob-s-home:/home/bob:cached"
+    environment:
+      - TERM=xterm-256color
+      - TZ=Europe/Rome
